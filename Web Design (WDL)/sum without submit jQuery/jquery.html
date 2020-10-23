@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".input").keyup(function(){
+              var val1 = +$(".value1").val();
+              var val2 = +$(".value2").val();
+              $("#result").val(val1+val2);
+       });
+    });
+
+  </script>
+  </head>
+  <body>
+  Enter First Number: <br>
+  <input type="number" class="input value1"> <br> <br>
+  Enter the Second Number: <br>
+  <input type="number" class="input value2"><br><br>
+ Result: <br>
+ <input type="text" id="result">
+</body>
+</html>
