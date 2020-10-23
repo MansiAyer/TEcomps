@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Experiment 4A: SORTING</title>
+	<script type="text/javascript">
+		var n=[13,17,15,1,10,9,2]
+		document.write("Input: "+n);
+		function sorting()
+		{
+			for(var i=0;i<=n.length-1;i++)
+		{
+			for(var j=i;j<=n.length-1;j++)
+			{
+				if(n[i]>n[j])
+				{
+					var t=n[j];
+					n[j]=n[i];
+					n[i]=t;
+				}
+			}
+		}
+		alert("Sorted array: "+n);
+	}
+</script>
+</head>
+<body>
+	<br>
+	<button onclick="sorting()" id="sort">Sort</button>
+</body>
+</html>
