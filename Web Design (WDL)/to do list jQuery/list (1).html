@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To do list</title>
+	<style type="text/css">
+		body{
+            background-color:#ffcccc;
+        }
+
+		p{
+			color: blue;
+			font-size: 30px;
+		}
+
+
+		#heading{
+			color: black;
+			font-size: 40px;
+			margin-right: 50px;
+			margin-top: 0px;
+			margin-left: 40px;
+
+	    }
+	    .items{
+	    	color:blue;
+	    	font-size: 30px;
+
+	    }
+
+	    .user{
+	    	color: black;
+	    	font-size: 20px;
+	    }
+
+	    #formal{
+        list-style-position: inside;
+	    }
+
+	    #informal{
+	    	cursor: move;
+	    	display: inline-block;
+	    	font-size: 30px;
+	    	color: blue;
+	    		    }
+
+	    .rem{
+	    	color: blue;
+	    	font-size: 20px;
+	    	background-color: pink;
+	    }
+	    input[type="submit"]{
+	    	background-color:pink;
+	    	font-size: 20px;
+	    	color:blue;
+
+	    }
+
+	    input[type="text"]{
+	    	font-size: 20px;
+	    	color:blue;
+	    	background-color:#ffcccc; 
+	    }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+        $('form').submit(function() {
+        if ($('#user').val() !== '') {
+            var ele= $('#user').val();
+            var list= $('<li>' + ele  + '</li>').append("<span>&nbsp&nbsp</span><button class='rem'>DELETE</button>");
+            $('ul').append(list); 
+            $('#user').val('');
+
+            $('.rem').click(function(){
+               $(this).parent().remove();
+            });
+
+			$('li').click(function() {
+               $(this).wrap("<strike>"); 
+            });
+        }
+		return false;
+    });
+
+  });
+	</script>
+</head>
+<body style="text-align:center">
+ <h2 id="heading">TO DO LIST</h2>
+ <div class="items">
+ 	<ol id="formal">
+ 		<li style="text-align: center">Add a task</li>
+ 		<li style="text-align: center">Click on delete to delete the task</li>
+ 		<li style="text-align: center">Click on the completed task to strike off</li>
+ 	</ol>
+ </div>
+ <form>
+ 	<p>Enter a task and click add to include in the list:</p> <input id="user" type="text" value="">
+ 	<input type="submit" value="ADD"></input>
+ </form>
+ <ul id="informal">
+ </ul>
+</body>
+</html>
