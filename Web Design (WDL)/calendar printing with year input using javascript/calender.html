@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+    <select id = "year">
+        <option value = "2016">2016</option>
+        <option value = "2017">2017</option>
+        <option value = "2018">2018</option>
+        <option value = "2019">2019</option>
+        <option value = "2020">2020</option>
+        <option value = "2021">2021</option>
+        <option value = "2022">2022</option>
+        <option value = "2023">2023</option>
+        <option value = "2024">2024</option>
+        <option value = "2025">2025</option>
+     </select>
+
+    <select id = "month">
+        <option value = "1">01</option>
+        <option value = "2">02</option>
+        <option value = "3">03</option>
+        <option value = "4">04</option>
+        <option value = "5">05</option>
+        <option value = "6">06</option>
+        <option value = "7">07</option>
+        <option value = "8">08</option>
+        <option value = "9">09</option>
+        <option value = "10">10</option>
+        <option value = "11">11</option>
+        <option value = "12">12</option>
+       </select>
+
+  <div id="calendar"></div> <br>
+
+  <input type = "button"
+  value = "Click"
+  onclick = "createCalendar(calendar)">
+
+  <script>
+    function createCalendar(elem) {
+        year = document.getElementById("year").value;
+        month= document.getElementById("month").value;
+      let mon = month - 1;
+      let d = new Date(year, mon);
+
+       let table = '<table><tr><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th><th>SUN</th></tr><tr>';
+
+    for (let i = 0; i < getDay(d); i++)
+     {
+        table += '<td></td>';
+      }
+
+
+      while (d.getMonth() == mon)
+      {
+        table += '<td>' + d.getDate() + '</td>';
+
+        if (getDay(d) % 7 == 6)
+        {
+          table += '</tr><tr>';
+        }
+        d.setDate(d.getDate() + 1);
+      }
+
+
+      if (getDay(d) != 0)
+      {
+
+        for (let i = getDay(d); i < 7; i++)
+         {
+          table += '<td></td>';
+        }
+      }
+
+
+      table += '</tr></table>';
+
+      elem.innerHTML = table;
+    }
+
+    function getDay(date)
+     { // get day number from 0 (monday) to 6 (sunday)
+      let day = date.getDay();
+      if (day == 0) day = 7; // make Sunday (0) the last day
+      return day - 1;
+    }
+
+  </script>
+
+
+</body>
+</html>

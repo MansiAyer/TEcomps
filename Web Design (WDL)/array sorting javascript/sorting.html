@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+            <h style="font-size: larger;color: blue;">SORT THE NUMBERS!!</h>
+            <br>
+            <button onclick="sort()"; style="width: 100px; height: 25px;" >CLICK</button>
+            <p id="demo"></p>
+            <script>
+                function sort(){ 
+                       var array=[];
+                       var size=prompt('Enter the array size',0)  
+                       var s=parseInt(size);
+                       while(s != 0) {
+                       var si = prompt("enter element", "");
+                       array.push(si);
+                       s=s-1;
+                       }
+                    var ar=array;
+                    document.getElementById("demo").innerHTML="elements before sorting:<br>"+ar+"<br>elements after sorting:<br>"+ar.sort(function(a,b){return a-b});;
+                }
+                </script>
+    </body>
+</html>

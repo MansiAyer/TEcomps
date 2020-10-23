@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TO-DO LIST</title>
+  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+   $("#add").click(function(){
+     var newlistitem = $("#addtolist").val();
+     if(newlistitem.length > 0){
+       var list= $('<li>' + newlistitem  + '</li>').append('<span>&nbsp&nbsp</span><button class="rem">DELETE</button>') ;
+       $('ul').append(list);
+         $("#addtolist").val("");
+
+         $(".rem").click(function(){
+            $(this).parent().remove();
+         });
+
+         $('li').click(function() {
+                  $(this).wrap("<strike>");
+               });
+
+      }
+    });
+});
+
+</script>
+
+
+<style media="screen">
+ body{
+    background-color: #F5CFBA;
+}
+
+  p{
+
+    font-size:20px;
+  }
+
+ input{
+   margin-left:500px;
+ }
+
+#todolist{
+  margin-left:40%;
+  margin-right:40%;
+
+}
+#todolist li{
+  padding:5px;
+}
+
+</style>
+
+
+  <body>
+    <h1 align="center">TO-DO LIST</h1>
+    <p  align="center">1.Add a task</p>
+    <p align="center">2.Click on Delete to Delete the task</p>
+    <p align="center">3.Click on the completed task to strike off</p>
+<br>
+<p align="center">Enter Task and Click on Add to include in the list</p>
+
+<input type="text" name="text" id="addtolist" >
+
+<button type="button" name="button" id="add" >Add</button>
+<ul id="todolist">
+</ul>
+  </body>
+</html>
