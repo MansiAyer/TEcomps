@@ -1,0 +1,47 @@
+<!DOCTYPE html5>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>My Hometown</title>
+		<link rel="stylesheet" type="text/css" href="1.css">
+
+	
+	</head>
+	
+	<body>
+		<p>	My Hometown is a small city in the state of Tamil Nadu. Tamil Nadu is a state in the south-eastern part of the Indian Peninsula.<br>
+				Tamil Nadu has some of the most remarkable temple architecture in the country, and a living tradition of <br>
+									music, dance, folk arts and fine arts.</p>
+	
+			<img src="images/1.jpg">
+
+		<p>Our village is a peaceful, noiseless, pollution free and a beautiful place.For its location and cool environment,<br>
+		one can enjoy the beauty of nature.Every year, during our summer vacations we used to visit our village. Due to scarce population,<br>
+		people do not reside too cloose to one another. Even our cottage is at a distance from other cottages.Flowers,fruits,trees,small plants<br>
+		and vegetables surround our cottage.All this makes the surrounding look green and fresh. One can see mountain at a distance touching the clouds<br>
+		This further beautifies the surrounding.<span id="dots">...</span><span id="more">It takes 2 days to reach our town by train. During our travel,me<br>
+		and my elder brother would always fight for the window seat. The journey would be completely tiring but excited to see our grandparents who would be<br>
+		waiting to receive us.Living among such friendly and simple people is certainly a real pleasure.</span></p>
+		<button onclick="myFunction()" id="myBtn">Read more</button>
+
+
+	<script>
+		function myFunction() {
+		  var dots = document.getElementById("dots");
+		  var moreText = document.getElementById("more");
+		  var btnText = document.getElementById("myBtn");
+
+		  if (dots.style.display === "none") {
+			dots.style.display = "inline";
+			btnText.innerHTML = "Read more"; 
+			moreText.style.display = "none";
+		  } else {
+			dots.style.display = "none";
+			btnText.innerHTML = "Read less"; 
+			moreText.style.display = "inline";
+		  }
+		}
+	</script>	
+	
+	</body>
+</html>
