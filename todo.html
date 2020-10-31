@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.js"
+			integrity=
+			"sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			crossorigin="anonymous"></script>
+
+	<style>
+		.container {
+			width: 80%;
+			height: auto;
+			font-size: 25px;
+		}
+
+		.foot {
+
+			top:10%;
+			left: 10%;
+			width: 60%;
+			text-align: center;
+		}
+		.example_f {
+				background-color:#008CBA;
+				border: none;
+				color: #FFFFFF;
+				text-align: center;
+				font-size: 23px;
+				padding: 10px;
+				width: 180px;
+				transition: all 0.4s;
+				cursor: pointer;
+				margin: 1px;
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				display:inline;
+				margin-left:2.5rem;
+			}
+			.example_f span {
+				cursor: pointer;
+				display: inline-block;
+				position: relative;
+				transition: 0.4s;
+				color: #FFFFFF;
+
+			}
+			.example_f span:after {
+				content: '\00bb';
+				position: absolute;
+				opacity: 0;
+				top: 0;
+				right: -20px;
+				transition: 0.5s;
+				color: #FFFFFF;
+
+			}
+			.example_f:hover span {
+				padding-right: 25px;
+			}
+			.example_f:hover span:after {
+				opacity: 1;
+				right: 0;
+			}
+			body {
+
+						background: lavender;
+			}
+
+			.input1{
+				height:50px;
+			}
+			.container1{
+	              padding: 20px;
+	              width: 600px;
+	              margin: 0 auto;
+	              margin-top: 40px;
+	              background: white;
+	            }
+
+	</style>
+
+</head>
+
+<body>
+	<center>
+
+		<div class="foot container1">
+			<div class="row">
+				<div class="col-sm-1">  </div>
+				<div class="col-sm-10">
+					<!-- Input for tasks -->
+					<h3><b>TO DO LIST</b></h3><BR>
+					<div class="input-group">
+						<input type="text"
+							class="form-control input1"
+							placeholder="Add Task"
+							id="text">
+						<div class="input-group-btn ">
+							<button class="example_f"><span>Add</span>
+						</button>
+						</div>
+					</div><br>
+					<div class="container">
+					</div>
+				</div>
+			</div>
+		</div>
+</center>
+
+	<script>
+		$(document).ready(function() {
+			$('.example_f').click(function() {
+				if ($('#text').val().length != 0) {
+					var x = $('.container').html();
+					var y =
+		`<div  class="alert alert-info alert-dismissible fade in">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close"><i style="font-size:28px" class="fa">&#xf014;</i></a>
+						` + $('#text').val() + `</div>`;
+					$('.container').html(y + x);
+					$('#text').val("");
+				} else alert("Enter something!");
+			});
+
+			$(document).on('click', '.alert', function() {
+				if ($(this).css('text-decoration-line') == "none")
+					$(this).css('text-decoration-line', 'line-through ');
+				else
+					$(this).css('text-decoration-line', 'none');
+			});
+		});
+	</script>
+</body>
+
+</html>
